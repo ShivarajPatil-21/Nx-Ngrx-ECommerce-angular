@@ -10,7 +10,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <ng-container *ngFor="let cat of categories$ | async">
-        <a mat-list-item [routerLink]="['/category',cat]">{{cat}}</a>
+        <a mat-list-item [routerLink]="['category',cat]">{{cat}}</a>
       </ng-container>
     </mat-nav-list>
   </mat-sidenav>
@@ -27,6 +27,6 @@
       </button>
       <span>santosh-workspace</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

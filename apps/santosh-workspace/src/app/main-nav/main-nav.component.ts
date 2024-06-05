@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { selectCategories } from '@org/category';
 import { Store } from '@ngrx/store';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -25,7 +25,8 @@ import { RouterLink } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    RouterLink
+    RouterLink,
+    RouterOutlet
   ]
 })
 export class MainNavComponent {

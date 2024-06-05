@@ -1,6 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
 import {
   provideRouter,
+  withComponentInputBinding,
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { appRoutes } from './app.routes';
@@ -15,7 +16,9 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(appRoutes, withEnabledBlockingInitialNavigation()), 
+    provideRouter(appRoutes, 
+    withEnabledBlockingInitialNavigation(),
+    withComponentInputBinding()), //used to get parameter from the router
     provideHttpClient(),
     provideAnimations(),
     provideStore(),
