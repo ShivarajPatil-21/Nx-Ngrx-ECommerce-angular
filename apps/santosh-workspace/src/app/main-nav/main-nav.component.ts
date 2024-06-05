@@ -8,6 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { selectCategories } from '@org/category';
+import { Store } from '@ngrx/store';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'ecom-main-nav',
@@ -20,12 +24,14 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    RouterLink
   ]
 })
 export class MainNavComponent {
   private breakpointObserver = inject(BreakpointObserver);
-
+  categories$ = this.store.select(selectCategories);
+  constructor(private readonly store: Store){}
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

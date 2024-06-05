@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { getcategoriesActions, selectCategories } from '@org/category';
+import { getcategoriesActions } from '@org/category';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 
@@ -17,7 +17,7 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit{
   title = 'santosh-workspace';
 
-  categories$ = this.store.select(selectCategories);
+ 
 
   constructor(private readonly store: Store){}
 
