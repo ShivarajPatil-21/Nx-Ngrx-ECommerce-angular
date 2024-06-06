@@ -1,26 +1,26 @@
 import { createEffect } from '@ngrx/effects';
 import { Actions, ofType } from '@ngrx/effects';
-
-import { catchError, exhaustMap, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { UsersPageActions, UsersApiActions } from '../actions';
-import { UsersService } from '../services/users.service';
+import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { productActions } from './product.action';
+import { ProductService } from '../product.service';
 
-export const loadUsers = createEffect(
-  (actions$ = inject(Actions), usersService = inject(UsersService)) => {
+export const loadProducts = createEffect(
+  (actions$ = inject(Actions), productService = inject(ProductService)) => {
     return actions$.pipe(
       ofType(productActions.loadProduct),
-      mergeMap(() => {
-        return usersService.getAll().pipe(
-          map((users) => UsersApiActions.usersLoadedSuccess({ users })),
+      exhaustMap((action) =>
+        productService.getProductByCategory('jewelery').pipe(
+          map((products) =>
+            productActions.productSuccess({ products })
+          ),
           catchError((error) =>
-            of(UsersApiActions.usersLoadedFailure({ error }))
+            of(productActions.productFailure({ error }))
           )
-        );
-      })
-    );
+        )
+      )
+    ); 
   },
   { functional: true }
 );
