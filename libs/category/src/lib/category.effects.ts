@@ -7,7 +7,7 @@ import {
     categoryActionsSuccess,
     } from './category.action'; 
 
-@Injectable()
+@Injectable() //class based effects
 export class CategoryEffects {
     constructor(
         private readonly categoryService: CategoryService, 
