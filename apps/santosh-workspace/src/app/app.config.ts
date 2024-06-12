@@ -12,7 +12,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore} from '@ngrx/store';
 import { provideHttpClient } from '@angular/common/http';
 import {CategoryEffects, categoryFeature } from '@org/category';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideStoreDevtools } from '@ngrx/store-devtools'; // to get routes into component
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -8,7 +8,9 @@ import { Product } from './store/product.action';
 export class ProductService {
 
   constructor(private http: HttpClient) {}
-
+  getProducts(){
+    return this.http.get<Product[]>(`https://fakestoreapi.com/products`);
+  }
   getProductByCategory(category: string){
     return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`);
   }

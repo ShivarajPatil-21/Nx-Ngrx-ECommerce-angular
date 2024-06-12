@@ -6,12 +6,34 @@ import { inject } from '@angular/core';
 import { productActions } from './product.action';
 import { ProductService } from '../product.service';
 
+//this effect is in funtional part
 export const loadProducts = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductService)) => {
     return actions$.pipe(
       ofType(productActions.loadProduct),
+      exhaustMap(() =>
+        productService.getProducts().pipe(
+          map((products) =>
+            productActions.productSuccess({ products })
+          ),
+          catchError((error) =>
+            of(productActions.productFailure({ error }))
+          )  
+        )
+      )
+    );
+ 
+  },
+  { functional: true }
+);
+
+export const loadProductsByCategory = createEffect(
+  (actions$ = inject(Actions), productService = inject(ProductService)) => {
+    return actions$.pipe(
+      ofType(productActions.loadProductByCategory),
       exhaustMap((action) =>
-        productService.getProductByCategory('jewelery').pipe(
+        //from where is action.category value coming in??
+        productService.getProductByCategory(action.category).pipe( 
           map((products) =>
             productActions.productSuccess({ products })
           ),
@@ -20,7 +42,8 @@ export const loadProducts = createEffect(
           )
         )
       )
-    ); 
+    );
+ 
   },
   { functional: true }
 );
