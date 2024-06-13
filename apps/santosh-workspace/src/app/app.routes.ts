@@ -26,5 +26,9 @@ export const appRoutes: Route[] = [
 
         ],
     },
+    {
+        path:'cart',
+        loadComponent:() => import('@org/cart').then((m)=>m.CartComponent),
+    }
 ];
   
