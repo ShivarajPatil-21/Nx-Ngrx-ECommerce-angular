@@ -13,8 +13,10 @@ export const loadProducts = createEffect(
       ofType(productActions.loadProduct),
       exhaustMap(() =>
         productService.getProducts().pipe(
-          map((products) =>
-            productActions.productSuccess({ products })
+          map((products) =>{
+            console.log(products)
+            return productActions.productSuccess({ products })
+          }
           ),
           catchError((error) =>
             of(productActions.productFailure({ error }))

@@ -2,6 +2,8 @@ import { Route } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState } from '@ngrx/store';
 // eslint-disable-next-line @nx/enforce-module-boundaries
+import { cartFeature, loadCart } from '@org/cart';
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { loadProducts, loadProductsByCategory, productFeature } from '@org/product';      
 
 export const appRoutes: Route[] = [
@@ -29,6 +31,9 @@ export const appRoutes: Route[] = [
     {
         path:'cart',
         loadComponent:() => import('@org/cart').then((m)=>m.CartComponent),
+        providers:[provideState(cartFeature),
+            provideEffects({loadCart}),
+        ],
     }
 ];
   

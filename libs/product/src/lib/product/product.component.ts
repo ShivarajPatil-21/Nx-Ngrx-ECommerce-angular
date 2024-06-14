@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
 import { productActions } from '../store/product.action';
-import { selectProducts, selectProductsByCategory } from '../store/product.selector';
+import { selectProducts} from '../store/product.selector';
 
 @Component({
   selector: 'org-product',

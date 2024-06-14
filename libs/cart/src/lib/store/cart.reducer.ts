@@ -11,7 +11,7 @@ export const initialState:CartState = {
     error: '',
 }
 
-export const productReducer = createReducer(
+export const cartReducer = createReducer(
     initialState,
     on(cartActions.cartSuccess, (state, action)=>({
         ...state,

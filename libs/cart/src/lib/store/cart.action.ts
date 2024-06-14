@@ -4,8 +4,8 @@ import {createActionGroup, emptyProps,props} from '@ngrx/store';
 export interface Cart{
     id:number;
     userId: number;
-    data: Date;
-    product:[
+    date: Date;
+    products:[
         {
             productId:number;
             quantity:number;
