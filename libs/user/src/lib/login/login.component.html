@@ -2,7 +2,9 @@
 
 <input type="text" placeholder="search text" [formControl]="search">
 
-
+{{loginForm.value|json}}
 <form [formGroup]="loginForm">
-    <input  />
+    <input type="text" placeholder="username" formControlName="username"/>
+    <input type="password" placeholder="password" formControlName="password"/>
+    <button type="submit">Login</button>  
 </form>
