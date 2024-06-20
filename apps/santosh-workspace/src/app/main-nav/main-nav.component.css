@@ -15,3 +15,9 @@
   top: 0;
   z-index: 1;
 }
+
+.amazoni{
+  width:150px;
+  display: block;
+  margin-top: 10px;
+}

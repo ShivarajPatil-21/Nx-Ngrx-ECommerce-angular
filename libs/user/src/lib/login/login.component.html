@@ -3,8 +3,25 @@
 <input type="text" placeholder="search text" [formControl]="search">
 
 {{loginForm.value|json}}
-<form [formGroup]="loginForm">
-    <input type="text" placeholder="username" formControlName="username"/>
-    <input type="password" placeholder="password" formControlName="password"/>
-    <button type="submit">Login</button>  
+<form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field class="example-full-width">
+        <input type="email" matInput placeholder="email" formControlName="email"/>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email') && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
+            the email is not valid
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="password" formControlName="password"/>
+        <mat-hint>hello is a hint</mat-hint>
+        <mat-error *ngIf="loginForm.hasError('minlength','password')">
+            the password should be 8 char minimum
+        </mat-error>
+        <mat-error *ngIf="loginForm.hasError('maxlength','password') ">
+            the password should be 16 char maximum
+        </mat-error>  
+    </mat-form-field>
+    
+    <button [disabled]="loginForm.invalid" mat-button color="primary" type="submit">Login</button>  
+  
 </form>
