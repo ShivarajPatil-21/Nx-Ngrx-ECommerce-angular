@@ -1,11 +1,10 @@
 <p>login works!</p>
 
-<input type="text" placeholder="search text" [formControl]="search">
 
 {{loginForm.value|json}}
 <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
     <mat-form-field class="example-full-width">
-        <input type="email" matInput placeholder="email" formControlName="email"/>
+        <input type="text" matInput placeholder="username" formControlName="email"/>
         <mat-error *ngIf="loginForm.get('email')?.hasError('email') && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
             the email is not valid
         </mat-error>
@@ -25,3 +24,4 @@
     <button [disabled]="loginForm.invalid" mat-button color="primary" type="submit">Login</button>  
   
 </form>
+

@@ -11,7 +11,7 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="['product']">All Product</a>
       <ng-container *ngFor="let cat of categories$ | async">
-        <a mat-list-item [routerLink]="['product',cat]">{{cat}}</a>
+        <a mat-list-item [routerLink]="['product', cat]">{{ cat }}</a>
       </ng-container>
       <a mat-list-item [routerLink]="['cart']">View Cart</a>
       <a mat-list-item [routerLink]="['order']">View Orders</a>
@@ -29,7 +29,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div>
-        <img class="amazoni" src="https://press.aboutamazon.in/static-files/3ca754e0-9176-4d89-8174-056267008479" alt="Amazon logo">
+        <img
+          class="amazoni"
+          src="https://press.aboutamazon.in/static-files/3ca754e0-9176-4d89-8174-056267008479"
+          alt="Amazon logo"
+        />
       </div>
     </mat-toolbar>
     <router-outlet></router-outlet>

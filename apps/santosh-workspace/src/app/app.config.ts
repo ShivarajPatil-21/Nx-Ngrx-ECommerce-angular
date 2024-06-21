@@ -24,7 +24,8 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState(categoryFeature),
     provideEffects([CategoryEffects]),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideRouter(appRoutes)
   ],
                   
 };

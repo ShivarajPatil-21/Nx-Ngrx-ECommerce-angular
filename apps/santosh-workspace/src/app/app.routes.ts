@@ -6,7 +6,7 @@ import { cartFeature, loadCart } from '@org/cart';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { loadProducts, loadProductsByCategory, productFeature } from '@org/product';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-    
+import { authGuard } from '@org/user'; 
 
 export const appRoutes: Route[] = [
     {
@@ -25,6 +25,7 @@ export const appRoutes: Route[] = [
                    provideEffects({loadProducts,loadProductsByCategory}),
 
         ],
+        canMatch: [authGuard],
     },
     {
         path: 'product/:categoryName',
@@ -33,6 +34,7 @@ export const appRoutes: Route[] = [
                    provideEffects({loadProducts,loadProductsByCategory}),
 
         ],
+        canMatch: [authGuard],
     },
     {
         path:'cart',
@@ -40,6 +42,7 @@ export const appRoutes: Route[] = [
         providers:[provideState(cartFeature),
             provideEffects({loadCart}),
         ],
+        canMatch: [authGuard],
     }
 ];
   
