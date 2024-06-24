@@ -18,7 +18,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="navigante">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -28,13 +28,34 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <div>
-        <img
-          class="amazoni"
-          src="https://press.aboutamazon.in/static-files/3ca754e0-9176-4d89-8174-056267008479"
-          alt="Amazon logo"
-        />
-      </div>
+      
+        <div class="left">
+          <img
+            class="amazoni"
+            src="https://press.aboutamazon.in/static-files/3ca754e0-9176-4d89-8174-056267008479"
+            alt="Amazon logo"
+          />
+        </div>
+        <div class="right">
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>account_circlez</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button routerLink="profile" mat-menu-item>
+              <mat-icon>person</mat-icon>
+              <span>profile</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>logout</mat-icon>
+              <span>logout</span>
+            </button>
+          </mat-menu>
+        </div>
+      
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

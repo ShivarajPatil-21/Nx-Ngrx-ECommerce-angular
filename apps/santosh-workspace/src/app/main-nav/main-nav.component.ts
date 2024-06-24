@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
@@ -26,7 +27,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     MatListModule,
     MatIconModule,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    MatMenuModule 
   ]
 })
 export class MainNavComponent {

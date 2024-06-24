@@ -20,4 +20,25 @@
   width:150px;
   display: block;
   margin-top: 10px;
+  pointer-events: none;
+
+}
+
+.navigante{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }

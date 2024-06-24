@@ -1,9 +1,6 @@
 
 <h1>{{categoryName}}</h1>
-<hr/>
-
-
-
+<hr>
 <div *ngIf="products$ | async as products" class="products-grid">
     <div *ngFor="let product of products" class="product-card">
       <mat-card class="example-card">

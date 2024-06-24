@@ -17,15 +17,21 @@ export class ProductComponent {
   @Input() set categoryName(name: string){
     if(name){
       this.store.dispatch(productActions.loadProductByCategory({category:name}));
-    }
-    else{
-       this.store.dispatch(productActions.loadProduct());
-    }
+      }
+      else{
+        this.store.dispatch(productActions.loadProduct());
+        }
+      this._categoryName=name.charAt(0).toUpperCase()+name.slice(1);
   }
-
+  private _categoryName!:string;
   products$ = this.store.select(selectProducts);
   constructor(private readonly store: Store){}
    
+
+  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
+    get categoryName():string{
+      return this._categoryName;
+    }
   // ngOnInit(): void {
   //     this.store.dispatch(productActions.loadProduct());
   // }
