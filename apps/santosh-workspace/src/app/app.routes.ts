@@ -47,7 +47,7 @@ export const appRoutes: Route[] = [
     {
         path:'profile',
         loadComponent:() => import('@org/user').then((m)=> m.ProfileComponent),
-        canMatch: [authGuard],
+        // canMatch: [authGuard],
     }
 ];
   
